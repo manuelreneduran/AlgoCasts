@@ -12,15 +12,17 @@ function maxChar(str) {
     charMap[char] = charMap[char] + 1 || 1;
   }
 
-  let highNum = 0;
+  let max = 0;
+  let maxChar = "";
 
   for (let char in charMap) {
-    if (charMap[char] > highNum) {
-      highNum = char;
+    if (charMap[char] > max) {
+      max = charMap[char];
+      maxChar = char;
     }
   }
 
-  return highNum;
+  return maxChar;
 }
 
 module.exports = maxChar;
