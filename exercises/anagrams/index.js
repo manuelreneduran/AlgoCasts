@@ -9,29 +9,47 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  let stringAMap = makeMap(stringA);
-  let stringBMap = makeMap(stringB);
+  let cleanStrA = cleanString(stringA);
+  let cleanStrB = cleanString(stringB);
 
-  if (Object.keys(stringAMap).length !== Object.keys(stringBMap).length) {
+  if (cleanStrA.length !== cleanStrB.length) {
     return false;
   }
 
-  for (let char in stringAMap) {
-    if (stringAMap[char] !== stringBMap[char]) {
-      return false;
-    }
+  for (var i = 0; i < cleanStrA.length; i++) {
+    if (cleanStrA[i] !== cleanStrB[i]) return false;
   }
   return true;
 }
 
-function makeMap(string) {
-  let map = {};
-
-  for (let char of string) {
-    if (char.match(/[A-Z]/gi)) map[char] = map[char] + 1 || 1;
-  }
-
-  return map;
+function cleanString(str) {
+  return str.replace(/[^\w]/g, "").split("").sort().join("");
 }
+
+// function anagrams(stringA, stringB) {
+//   let stringAMap = makeMap(stringA);
+//   let stringBMap = makeMap(stringB);
+
+//   if (Object.keys(stringAMap).length !== Object.keys(stringBMap).length) {
+//     return false;
+//   }
+
+//   for (let char in stringAMap) {
+//     if (stringAMap[char] !== stringBMap[char]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// function makeMap(string) {
+//   let map = {};
+
+//   for (let char of string) {
+//     if (char.match(/[A-Z]/gi)) map[char] = map[char] + 1 || 1;
+//   }
+
+//   return map;
+// }
 
 module.exports = anagrams;
