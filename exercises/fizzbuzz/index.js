@@ -17,14 +17,12 @@ function fizzBuzz(n) {
   while (counter <= n) {
     if (counter % 3 === 0 && counter % 5 === 0) {
       console.log("fizzbuzz");
+    } else if (counter % 3 === 0) {
+      console.log("fizz");
+    } else if (counter % 5 === 0) {
+      console.log("buzz");
     } else {
-      if (counter % 3 === 0) {
-        console.log("fizz");
-      } else if (counter % 5 === 0) {
-        console.log("buzz");
-      } else {
-        console.log(counter);
-      }
+      console.log(counter);
     }
     counter++;
   }
