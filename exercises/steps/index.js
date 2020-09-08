@@ -17,61 +17,42 @@
 //       '### '
 //       '####'
 
-function steps(n, row = 0, stair = "") {
-  if (row === n) {
-    return;
-  }
+//O(n^2)
+function steps(n) {
+  for (var i = 0; i < n; i++) {
+    let string = ''
 
-  if (n === stair.length) {
-    console.log(stair);
-    return steps(n, row + 1);
-  }
+    for (var q = 0; q < n; q++) {
+      if (q <= i) {
+        string += '#'
+      } else {
+        string += ' '
+      }
+    }
 
-  if (stair.length <= row) {
-    stair += "#";
-  } else {
-    stair += " ";
+    console.log(string)
   }
-
-  steps(n, row, stair);
 }
 
-// function steps(n, step = "", counter = 1) {
-//   if (counter > n) {
-//     return null;
+//recursive
+
+// function steps(n, row = 0, stairs = '') {
+//   if (n === row) {
+//     return
 //   }
 
-//   if (step.length < counter) {
-//     step += "#";
+//   if (stairs.length === n) {
+//     console.log(stairs)
+//     return steps(n, row + 1)
+//   }
+
+//   if (stairs.length <= row) {
+//     stairs += '#'
 //   } else {
-//     step += " ";
+//     stairs += ' '
 //   }
 
-//   if (step.length === n) {
-//     console.log(step);
-//     step = "";
-//     steps(n, step, counter + 1);
-//     return null;
-//   }
-
-//   steps(n, step, counter);
-// }
-// function steps(n) {
-//   var counter = 1;
-
-//   for (var i = 0; i < n; i++) {
-//     var step = "";
-
-//     for (var q = 0; q < n; q++) {
-//       if (q < counter) {
-//         step += "#";
-//       } else {
-//         step += " ";
-//       }
-//     }
-//     console.log(step);
-//     counter++;
-//   }
+//   return steps(n, row, stairs)
 // }
 
-module.exports = steps;
+module.exports = steps
