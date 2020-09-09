@@ -14,6 +14,23 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  let maxLength = n * 2 - 1
+  let midPointInd = n - 1
 
-module.exports = pyramid;
+  for (var row = 0; row < n; row++) {
+    let level = ''
+    let start = midPointInd - row
+    let end = midPointInd + row
+
+    for (var col = 0; col < maxLength; col++) {
+      if (col >= start && col <= end) {
+        level += '#'
+      } else {
+        level += ' '
+      }
+    }
+    console.log(level)
+  }
+}
+module.exports = pyramid
