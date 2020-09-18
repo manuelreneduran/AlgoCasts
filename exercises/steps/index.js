@@ -18,21 +18,41 @@
 //       '####'
 
 //O(n^2)
-function steps(n) {
-  for (var i = 0; i < n; i++) {
-    let string = ''
 
-    for (var q = 0; q < n; q++) {
-      if (q <= i) {
-        string += '#'
-      } else {
-        string += ' '
-      }
-    }
-
-    console.log(string)
+function steps(n, row = 0, stairs = '') {
+  if (n === row) {
+    return
   }
+
+  if (stairs.length === n) {
+    console.log(stairs)
+    return steps(n, row + 1, '')
+  }
+
+  if (stairs.length <= row) {
+    stairs += '#'
+  } else {
+    stairs += ' '
+  }
+
+  return steps(n, row, stairs)
 }
+
+// function steps(n) {
+//   for (var i = 0; i < n; i++) {
+//     let string = ''
+
+//     for (var q = 0; q < n; q++) {
+//       if (q <= i) {
+//         string += '#'
+//       } else {
+//         string += ' '
+//       }
+//     }
+
+//     console.log(string)
+//   }
+// }
 
 //recursive
 

@@ -8,23 +8,23 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {
-  let cleanStrA = cleanString(stringA);
-  let cleanStrB = cleanString(stringB);
+// function anagrams(stringA, stringB) {
+//   let cleanStrA = cleanString(stringA);
+//   let cleanStrB = cleanString(stringB);
 
-  if (cleanStrA.length !== cleanStrB.length) {
-    return false;
-  }
+//   if (cleanStrA.length !== cleanStrB.length) {
+//     return false;
+//   }
 
-  for (var i = 0; i < cleanStrA.length; i++) {
-    if (cleanStrA[i] !== cleanStrB[i]) return false;
-  }
-  return true;
-}
+//   for (var i = 0; i < cleanStrA.length; i++) {
+//     if (cleanStrA[i] !== cleanStrB[i]) return false;
+//   }
+//   return true;
+// }
 
-function cleanString(str) {
-  return str.replace(/[^\w]/g, "").split("").sort().join("");
-}
+// function cleanString(str) {
+//   return str.replace(/[^\w]/g, "").split("").sort().join("");
+// }
 
 // function anagrams(stringA, stringB) {
 //   let stringAMap = makeMap(stringA);
@@ -52,4 +52,22 @@ function cleanString(str) {
 //   return map;
 // }
 
-module.exports = anagrams;
+function anagrams(strA, strB) {
+  let cleanStringA = cleanString(strA)
+  let cleanStringB = cleanString(strB)
+
+  if (cleanStringA.length !== cleanStringB.length) {
+    return false
+  }
+
+  for (var i = 0; i < cleanStringA.length; i++) {
+    if (cleanStringA[i] !== cleanStringB[i]) return false
+  }
+  return true
+}
+
+function cleanString(str) {
+  return str.match(/[\w]/g).sort().join('')
+}
+
+module.exports = anagrams
